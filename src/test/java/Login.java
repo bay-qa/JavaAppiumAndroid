@@ -3,11 +3,6 @@
  */
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -22,9 +17,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 import java.util.Set;
-import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
 
@@ -74,7 +67,7 @@ public class Login {
         driverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@name='login']")));
 
         driver.findElement(By.xpath("//button[@name='login']")).click();
-        
+
         driverWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@name='__CONFIRM__']")));
 
         driver.findElement(By.xpath("//button[@name='__CONFIRM__']")).click();
