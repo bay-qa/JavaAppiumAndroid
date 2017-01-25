@@ -12,12 +12,8 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -31,11 +27,6 @@ public class BaseTest {
 
     static WebElement waitForClickable(By locator) {
         return driverWait.until(ExpectedConditions.elementToBeClickable(locator));
-    }
-
-    static WebElement waitForElement(By locator) {
-
-        return driverWait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     void changeContext(String context) throws InterruptedException {
