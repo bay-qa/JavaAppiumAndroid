@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class BaseTest {
     static AppiumDriver driver;
-    static WebDriverWait driverWait;
+    private static WebDriverWait driverWait;
 
 
     static WebElement waitForClickable(By locator) {
@@ -55,8 +55,6 @@ public class BaseTest {
 
         driver.findElement(By.id("android:id/text1")).click();
         driver.findElement(By.id("android:id/button1")).click();
-        driver.findElementById("com.android.packageinstaller:id/permission_allow_button").click();
-
         Assert.assertTrue(driver.findElementById("btnHamburger").isDisplayed());
 
     }
@@ -77,12 +75,9 @@ public class BaseTest {
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         capabilities.setCapability(AndroidMobileCapabilityType.NO_SIGN, "true");
         capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "us.moviemates");
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".Activities.MainActivity");
-        capabilities.setCapability("autoGrantPermissions", "true");
-
-
-
-//        capabilities.setCapability(MobileCapabilityType.NO_RESET, "true");
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".Activities.SplashActivity");
+        capabilities.setCapability("autoGrantPermissions", "true"); //grant permission to system dialogues such as location
+//      capabilities.setCapability(MobileCapabilityType.NO_RESET, "true");
         capabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "/app/app-debug.apk");
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 10);
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
@@ -93,10 +88,10 @@ public class BaseTest {
         System.out.println(".......Starting Appium driver");
     }
 
-//    @BeforeMethod(alwaysRun = true)
-//    public void beforeEachTest()  {
-//        successfulGoogleLoginWithValidCredential();
-//    }
+    @BeforeMethod(alwaysRun = true)
+    public void beforeEachTest()  {
+        successfulGoogleLoginWithValidCredential();
+    }
 
     @AfterSuite
     public void tearDown() {
