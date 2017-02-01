@@ -3,7 +3,7 @@ package RegressionTests;
 import Utils.BaseTest;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 /**
  * Created by idorovskikh on 1/17/17.
@@ -11,15 +11,15 @@ import org.testng.annotations.BeforeMethod;
 public class FacebookLogin extends BaseTest {
 
 
-    @BeforeMethod(groups = "regression")
+    @BeforeTest(groups = "regression")
     public void successfulFacebookLoginWithValidCredential() throws InterruptedException {
         driver.findElement(By.id("btnLogin")).click();
 
         changeContext("WEBVIEW");
 
 //        input your facebook username and password
-        driver.findElement(By.xpath("//input[@name='email']")).sendKeys("idorov01@gmail.com");
-        driver.findElement(By.xpath("//input[@name='pass']")).sendKeys("qafocus02");
+        driver.findElement(By.xpath("//input[@name='email']")).sendKeys(prop.getProperty("username"));
+        driver.findElement(By.xpath("//input[@name='pass']")).sendKeys(prop.getProperty("password"));
 
         driver.hideKeyboard();
 
@@ -38,4 +38,5 @@ public class FacebookLogin extends BaseTest {
 
         Assert.assertTrue(driver.findElementById("btnHamburger").isDisplayed());
     }
+
 }

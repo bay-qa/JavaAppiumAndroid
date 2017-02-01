@@ -17,6 +17,7 @@ public class Navigation extends FacebookLogin {
         return tabs.get(index);
     }
 
+
     @Test(groups = "regression")
     protected void navigateThroughLandingScreens(){
         WebElement moviesScreen = driver.findElementById("pager");
@@ -35,4 +36,5 @@ public class Navigation extends FacebookLogin {
         Assert.assertTrue(chatsScreen.isDisplayed());
 
     }
+
 }

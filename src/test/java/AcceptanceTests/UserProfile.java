@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
  * Created by idorovskikh on 1/18/17.
  */
 public class UserProfile extends GoogleLogin {
-
     @Test(groups = "acceptance")
     public void changeName() {
         driver.findElementById("btnHamburger").click();
