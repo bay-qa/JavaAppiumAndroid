@@ -1,23 +1,23 @@
 package Utils;
 
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+
 import java.io.IOException;
 
 /**
  * Created by idorovskikh on 1/31/17.
  */
-public class AppiumServer {
-    public static void startAppiumServer() throws IOException, InterruptedException {
+ class AppiumServer {
+    private static AppiumDriverLocalService service = AppiumDriverLocalService.buildDefaultService();
 
-        Runtime.getRuntime().exec("appium");
+     static void startAppiumServer() throws IOException, InterruptedException {
 
-        Thread.sleep(7000);
+        service.start();
     }
 
-    public static void stopAppiumServer() throws InterruptedException, IOException {
+     static void stopAppiumServer() throws InterruptedException, IOException {
 
-        Runtime.getRuntime().exec("killall node");
-
-        Thread.sleep(3000);
+       service.stop();
 
     }
 }
