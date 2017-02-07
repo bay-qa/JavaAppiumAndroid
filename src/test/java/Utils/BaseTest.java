@@ -28,17 +28,17 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    public static AppiumDriver driver;
+    protected static AppiumDriver driver;
     static WebDriverWait driverWait;
 
-    public static Properties prop = new Properties();
+    protected static Properties prop = new Properties();
 
 
-    public static WebElement waitForClickable(By locator) {
+    protected static WebElement waitForClickable(By locator) {
         return driverWait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
-    public boolean elementIsNotPresent(By by) {
+    protected boolean elementIsNotPresent(By by) {
         try {
             driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
             return driver.findElements(by).isEmpty();
@@ -47,7 +47,7 @@ public class BaseTest {
         }
     }
 
-    public void changeContext(String context) throws InterruptedException {
+    protected void changeContext(String context) throws InterruptedException {
         Set<String> contextHandles = driver.getContextHandles();
 
         for (String s: contextHandles){

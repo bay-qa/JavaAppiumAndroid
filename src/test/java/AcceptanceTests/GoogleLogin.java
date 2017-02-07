@@ -22,6 +22,7 @@ public class GoogleLogin extends BaseTest {
         Boolean result = elementIsNotPresent(By.id("com.android.packageinstaller:id/permission_allow_button"));
 
         if(!result){
+            // driver.switchTo().alert().accept(); DOES NOT WORK!!!!
             driver.findElementById("com.android.packageinstaller:id/permission_allow_button").click();
         }
 
