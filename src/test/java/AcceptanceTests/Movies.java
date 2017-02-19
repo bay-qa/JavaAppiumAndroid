@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
  */
 public class Movies extends GoogleLogin {
 
-    @Test(groups = "acceptance")
+    @Test
     public void verifyMoviesMarkedInterested() throws InterruptedException {
 //      great reason why working with live data is always going to cause test flakiness
         Thread.sleep(10000);

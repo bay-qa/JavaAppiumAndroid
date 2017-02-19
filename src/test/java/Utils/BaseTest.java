@@ -87,12 +87,12 @@ public class BaseTest {
         capabilities.setCapability("autoGrantPermissions", "true"); //grant permission to system dialogues such as location
 //      capabilities.setCapability(MobileCapabilityType.NO_RESET, "true");
         capabilities.setCapability(MobileCapabilityType.APP, System.getProperty("user.dir") + "/app/app-debug.apk");
-        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 20);
+        capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 30);
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driverWait = new WebDriverWait(driver, 20);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driverWait = new WebDriverWait(driver, 30);
         System.out.println(".......Starting Appium driver");
     }
 
